@@ -1,0 +1,52 @@
+﻿@model Product
+<div class="col-lg-6">
+    <section class="panel">
+        <header class="panel-heading">
+            Ürün Ekle
+        </header>
+        <div class="panel-body">
+            @using (Html.BeginForm("AddProduct","Home",FormMethod.Post,new { enctype="multipart/form-data"}))
+            {
+                <div class="form-group">
+                    <label>Ürün İsmi</label>
+                    @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control", placeholder = "Ürün İsmi Giriniz" })
+
+                </div>
+                <div class="form-group">
+                    <label>Ürün Fiyatı</label>
+                    @Html.TextBoxFor(x => x.UnitPrice, new { @class = "form-control", placeholder = "Fiyat Giriniz" })
+
+                </div>
+
+                <div class="form-group">
+                    <label>Ürün Stok</label>
+                    @Html.TextBoxFor(x => x.UnitsInStock, new { @class = "form-control", placeholder = "Stok Giriniz" })
+
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Kategori Bilgisi</label>
+                    @if ((ViewBag.Categories as List<Category>).Count<1)
+                    {
+                        <br />
+                        <span>Bir kategori eklenmemiş.. Eklemek icin @Html.ActionLink("Tıklayınız", "CategoryAdd", "Category")</span>
+                    }
+                    else
+                    {
+                        @Html.DropDownListFor(x => x.CategoryID, new SelectList(ViewBag.Categories, "ID", "CategoryName"), "Lutfen Seciniz")
+                    }
+
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputFile">File input</label>
+                    <input type="file" name="resim" id="exampleInputFile">
+                    <p class="help-block">Example block-level help text here.</p>
+                </div>
+
+                <button type="submit" class="btn btn-info">Ürün Ekle</button>
+            }
+        </div>
+    </section>
+</div>
+

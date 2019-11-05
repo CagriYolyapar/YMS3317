@@ -1,0 +1,31 @@
+﻿
+
+@model EntityAttribute
+<div class="col-lg-6">
+    <section class="panel">
+        <header class="panel-heading">
+            Kategori Ekle
+        </header>
+        <div class="panel-body">
+            @using (Html.BeginForm("AddAttribute", "EntityAttribute", FormMethod.Post))
+            {
+                <div class="form-group">
+                    <label>Özellik İsmi</label>
+                    @Html.TextBoxFor(x => x.AttributeName, new { @class = "form-control", placeholder = "Özellik İsmi Giriniz" })
+
+                </div>
+                <div class="form-group">
+                    <label>Açıklama Giriniz</label>
+                    @Html.TextBoxFor(x => x.Description, new { @class = "form-control", placeholder = "Açıklama" })
+
+                </div>
+
+
+
+                <button type="submit" class="btn btn-info">Özellik Ekle</button>
+            }
+        </div>
+    </section>
+</div>
+
+

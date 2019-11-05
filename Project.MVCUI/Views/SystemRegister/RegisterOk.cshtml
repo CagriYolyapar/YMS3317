@@ -1,0 +1,44 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RegisterOk</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+</head>
+<body>
+    <div class="main-content">
+        <div class="text-success">
+          
+               @if (ViewBag.AktifDegil!=null)
+               {
+                   <h2> @ViewBag.AktifDegil</h2>
+               }
+               else
+               {
+                   <h2>  Tebrikler kayıt oldunuz...Lütfen E-Mail adresinize gönderdigimiz aktivasyon linkine tıklayarak hesabınızı aktif hale getiriniz...   </h2>
+               }
+             
+
+
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    $(function () {
+                   setTimeout(function () {
+                       window.location = "/SystemRegister/Register";
+                   },5000)
+    })
+
+
+</script>

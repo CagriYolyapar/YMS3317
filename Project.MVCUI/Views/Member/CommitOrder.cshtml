@@ -1,0 +1,46 @@
+﻿@model Tuple<Order,PaymentVM>
+@{
+    ViewBag.Title = "CommitOrder";
+    Layout = "~/Areas/Administrator/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel-body">
+    <div class="form">
+        @using (Html.BeginForm("CommitOrder", "Member", FormMethod.Post, new { @class = "cmxform form-horizontal tasi-form", enctype = "multipart/form-data" }))
+        {
+            <div class="form-group ">
+                <label for="cname" class="control-label col-lg-2">Gonderim Adresi</label>
+                <div class="col-lg-10">
+                    @Html.TextBoxFor(x => x.Item1.ShippedAddress, new { @class="form-control"})
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="cemail" class="control-label col-lg-2">E-Mail (required)</label>
+                <div class="col-lg-10">
+                  @Html.TextBoxFor(x => x.Item2.CardNumber, new { @class="form-control"})
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="curl" class="control-label col-lg-2">URL (optional)</label>
+                <div class="col-lg-10">
+                   @Html.TextBoxFor(x => x.Item2.FirstName, new { @class="form-control"})
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="ccomment" class="control-label col-lg-2">Your Comment (required)</label>
+                <div class="col-lg-10">
+                  @Html.TextBoxFor(x=>x.Item2.LastName)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-10">
+                    <button class="btn btn-primary" type="submit">Onayla</button>
+                   @Html.ActionLink("Cancel", "Index", "Member", null, new {@class="btn btn-default" })
+                </div>
+            </div>
+
+           
+        }
+    </div>
+</div>
+

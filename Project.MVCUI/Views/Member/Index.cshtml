@@ -1,0 +1,91 @@
+﻿@model List<Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Administrator/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="color:red">@TempData["message"]</h2>
+
+
+@section MemberSepet{
+
+<li>
+    <a class="active" href="@Url.Action("CartPage")">
+        <i class="icon-dashboard"></i>
+        <span>Sepete Git</span>
+    </a>
+</li>
+
+}
+
+<h2>@TempData["gitti"]</h2>
+<h2>@TempData["silinecekYok"]</h2>
+
+<div class="row">
+
+    <div class="col-md-9">
+        <section class="panel">
+            <div class="panel-body">
+
+                <div class="pull-right">
+                    <ul class="pagination pagination-sm pro-page-list">
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">»</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <div class="row product-list">
+
+            @foreach (Product item in Model)
+            {
+                <div class="col-md-4">
+                    <section class="panel">
+                        <div class="pro-img-box">
+                            <img src="@item.ImagePath" alt="" height="300" />
+                            <a href="@Url.Action("AddToCart",new { id=item.ID})" class="adtocart">
+                                <i class="icon-shopping-cart"></i>
+                            </a>
+                        </div>
+                        <div class="panel-body text-center">
+                            <h4>
+                                <a href="@Url.Action("ProductDetail",new { id=item.ID})" class="pro-title">
+                                    @item.ProductName
+                                </a>
+                            </h4>
+                            <p class="price">$@item.UnitPrice</p>
+                        </div>
+                    </section>
+                </div>
+            }
+
+
+
+        </div>
+    </div>
+</div>
+
+
+<!-- js placed at the end of the document so the pages load faster -->
+<script src="~/OuterTools/FlatAdmin/js/jquery.js"></script>
+<script src="~/OuterTools/FlatAdmin/js/bootstrap.min.js"></script>
+<script class="include" type="text/javascript" src="~/OuterTools/FlatAdmin/js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="~/OuterTools/FlatAdmin/js/jquery.scrollTo.min.js"></script>
+<script src="~/OuterTools/FlatAdmin/js/jquery.nicescroll.js" type="text/javascript"></script>
+<script src="~/OuterTools/FlatAdmin/assets/jquery-ui/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+<script src="~/OuterTools/FlatAdmin/js/jquery.ui.touch-punch.min.js"></script>
+<script src="~/OuterTools/FlatAdmin/js/jquery.customSelect.min.js"></script>
+<script src="~/OuterTools/FlatAdmin/js/respond.min.js"></script>
+
+<!--common script for all pages-->
+<script src="~/OuterTools/FlatAdmin/js/common-scripts.js"></script>
+<script src="~/OuterTools/FlatAdmin/js/sliders.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $(function () {
+            $('select.styled').customSelect();
+        });
+    });</script>
