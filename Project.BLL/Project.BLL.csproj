@@ -50,7 +50,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DesignPatterns\Class1.cs" />
     <Compile Include="DesignPatterns\RepositoryPattern\BaseRep\BaseRepository.cs" />
     <Compile Include="DesignPatterns\RepositoryPattern\ConcRep\AppUserRepository.cs" />
     <Compile Include="DesignPatterns\RepositoryPattern\ConcRep\CategoryRepository.cs" />

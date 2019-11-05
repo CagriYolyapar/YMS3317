@@ -100,6 +100,10 @@ namespace Project.MVCUI.Controllers
         {
             //Burada artık bir client olarak bankamızın Api'sine istek göndermemiz lazım (Api Consume).
 
+            bool result;
+
+            AppUser kullanici = Session["member"] as AppUser;
+
             return View();
         }
 
